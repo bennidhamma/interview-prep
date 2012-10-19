@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include "common.h"
+
+void selection_sort(int s[], int n)
+{
+	int i,j; //counters;
+	int min; //index of minimum
+
+	for(i = 0; i < n; i++)
+	{
+		min = i;
+		for (j=i+1; j<n; j++)
+			if (s[j] < s[min]) min = j;
+		swap(&s[i], &s[min]);
+	}
+}
+
