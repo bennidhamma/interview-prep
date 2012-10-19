@@ -27,13 +27,11 @@ namespace googleprep
                 ProcessSolution (a, k);
             else {
                 foreach (T c in ConstructCandidates (a, k)) {
-                    if (a.Count <= k)
-                        a.Add (c);
-                    else
-                        a [k] = c;
+                    a.Add (c);
                     MakeMove (a, k);
                     Backtrack (a, k + 1);
                     UnmakeMove (a, k);
+                    a.RemoveAt (a.Count - 1);
                     if (Finished)
                         return;
                 }

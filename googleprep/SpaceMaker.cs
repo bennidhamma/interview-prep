@@ -26,7 +26,7 @@ namespace googleprep
 
         public override void ProcessSolution (List<string> a, int k)
         {
-            solutions.Add (string.Join(" ", a.ToArray(), 0, k));
+            solutions.Add (string.Join(" ", a));
         }
 
         public override IEnumerable<string> ConstructCandidates (List<string> a, int k)
