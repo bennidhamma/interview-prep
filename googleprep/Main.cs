@@ -2,11 +2,11 @@ using System;
 
 namespace googleprep
 {
-	class MainClass
-	{
-		public static void Main (string[] args)
-		{
- 			
-		}
-	}
+    class MainClass
+    {
+        public static void Main (string[] args)
+        {
+            
+        }
+    }
 }
