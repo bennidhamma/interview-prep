@@ -23,7 +23,6 @@ namespace googleprep
             return solutions;
         }
 
-        #region implemented abstract members of googleprep.Backtracker
         public override bool IsSolution (List<int> a, int k)
         {
             return sum == target && k == 4;
@@ -63,7 +62,6 @@ namespace googleprep
                 if (! a.Contains (i) && sum + nums [i] <= target)
                     yield return i;
         }
-        #endregion
 
         public override void MakeMove (List<int> a, int k)
         {

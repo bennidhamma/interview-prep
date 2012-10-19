@@ -8,11 +8,6 @@ namespace googleprep
 		public string Input {get; set;}
 		public int NumberOfSolutions { get; set; }
 
-		public StringCombinations ()
-		{
-		}
-
-		#region implemented abstract members of googleprep.Backtracker
 		public override bool IsSolution (List<int> a, int k)
 		{
 			return k == Input.Length;
@@ -33,7 +28,6 @@ namespace googleprep
             yield return 0;
             yield return 1;
 		}
-		#endregion
 
 		public void Run (string input)
 		{
@@ -43,4 +37,3 @@ namespace googleprep
 		}
 	}
 }
-

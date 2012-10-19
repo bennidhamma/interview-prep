@@ -9,12 +9,6 @@ namespace googleprep
 
         public int NumberOfSolutions { get; set; }
 
-        public PermuteString ()
-        {
-            
-        }
-
-        #region implemented abstract members of googleprep.Backtracker
         public override bool IsSolution (List<int> a, int k)
         {
             return k == Input.Length;
@@ -40,7 +34,6 @@ namespace googleprep
                 if (! inPermutation [i])
                     yield return i;
         }
-        #endregion
 
         public void Run (string input)
         {

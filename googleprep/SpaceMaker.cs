@@ -18,7 +18,6 @@ namespace googleprep
             return solutions;
         }
 
-        #region implemented abstract members of googleprep.Backtracker
         public override bool IsSolution (List<string> a, int k)
         {
             return count == input.Length;
@@ -39,7 +38,6 @@ namespace googleprep
                     yield return t.Word;
             }
         }
-        #endregion
 
         public override void MakeMove (List<string> a, int k)
         {
@@ -50,7 +48,5 @@ namespace googleprep
         {
             count -= a[k].Length;
         }
-
     }
 }
-
