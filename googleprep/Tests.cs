@@ -44,6 +44,40 @@ namespace googleprep
                 Console.WriteLine (string.Join (", ", l));
             }
         }
+
+        [Test]
+        public void SpacifyTest ()
+        {
+            SpaceMaker s = new SpaceMaker ();
+            foreach (string result in s.Spacify ("peanutbutter"))
+                Console.WriteLine (result);
+        }
+
+        [Test]
+        public void SpacifyTest2 ()
+        {
+            SpaceMaker s = new SpaceMaker ();
+            foreach (string result in s.Spacify ("oneflewoverthecuckoosnest"))
+                Console.WriteLine (result);
+        }
+
+        [Test]
+        public void SpacifyTest3 ()
+        {
+            string[] strings = new string[] {
+                "oneflewoverthecuckoosnest",
+                "peanutbutter",
+                "abrashrebelralliesthepatientstotakeontheoppressive",
+                "peoplewhoareworkinghardeveryday"
+            };
+
+            SpaceMaker sm = new SpaceMaker ();
+            foreach (string s in strings) {
+                foreach (string result in sm.Spacify (s))
+                    Console.WriteLine (result);
+                Console.WriteLine ();
+            }
+        }
     }
 }
 

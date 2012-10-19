@@ -5,25 +5,51 @@ namespace googleprep
 {
     public class SpaceMaker : Backtracker<string>
     {
-        public SpaceMaker ()
+        int count = 0;
+        string input;
+        public List<string> solutions;
+
+        public List<string> Spacify (string input)
         {
+            count = 0;
+            this.input = input;
+            solutions = new List<string> ();
+            Backtrack (new List<string>(), 0);
+            return solutions;
         }
+
         #region implemented abstract members of googleprep.Backtracker
         public override bool IsSolution (List<string> a, int k)
         {
-            throw new System.NotImplementedException ();
+            return count == input.Length;
         }
 
         public override void ProcessSolution (List<string> a, int k)
         {
-            throw new System.NotImplementedException ();
+            solutions.Add (string.Join(" ", a.ToArray(), 0, k));
         }
 
         public override IEnumerable<string> ConstructCandidates (List<string> a, int k)
         {
-            throw new System.NotImplementedException ();
+            var t = Trie.Standard;
+            int i = count;
+            while (t != null && i < input.Length) {
+                t = t.Next (input [i++]);
+                if (t != null && t.IsWord)
+                    yield return t.Word;
+            }
         }
         #endregion
+
+        public override void MakeMove (List<string> a, int k)
+        {
+            count += a[k].Length;
+        }
+
+        public override void UnmakeMove (List<string> a, int k)
+        {
+            count -= a[k].Length;
+        }
 
     }
 }
