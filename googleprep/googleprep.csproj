@@ -45,6 +45,8 @@
     <Compile Include="Tests.cs" />
     <Compile Include="StringCombinations.cs" />
     <Compile Include="FourSum.cs" />
+    <Compile Include="Trie.cs" />
+    <Compile Include="SpaceMaker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

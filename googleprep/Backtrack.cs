@@ -1,35 +1,36 @@
 using System;
+using System.Collections.Generic;
 
 namespace googleprep
 {
-    public abstract class Backtracker
+    public abstract class Backtracker<T>
     {
         public bool Finished { get; set; }
 
-        public abstract bool IsSolution (int[] a, int k);
+        public abstract bool IsSolution (List<T> a, int k);
 
-        public abstract void ProcessSolution (int[] a, int k);
+        public abstract void ProcessSolution (List<T> a, int k);
 
-        public abstract int[] ConstructCandidates (int[] a, int k);
+        public abstract IEnumerable<T> ConstructCandidates (List<T> a, int k);
 
-        public virtual void MakeMove (int[] a, int k)
+        public virtual void MakeMove (List<T> a, int k)
         {
         }
 
-        public virtual void UnmakeMove (int[] a, int k)
+        public virtual void UnmakeMove (List<T> a, int k)
         {
         }
 
-        public void Backtrack (int[] a, int k)
+        public void Backtrack (List<T> a, int k)
         {
-            int[] candidates;
-
             if (IsSolution (a, k))
                 ProcessSolution (a, k);
             else {
-                candidates = ConstructCandidates (a, k);
-                foreach (int c in candidates) {
-                    a [k] = c;
+                foreach (T c in ConstructCandidates (a, k)) {
+                    if (a.Count <= k)
+                        a.Add (c);
+                    else
+                        a [k] = c;
                     MakeMove (a, k);
                     Backtrack (a, k + 1);
                     UnmakeMove (a, k);
