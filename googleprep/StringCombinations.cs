@@ -25,14 +25,14 @@ namespace googleprep
 
 		public override IEnumerable<int> ConstructCandidates (List<int> a, int k)
 		{
-            yield return 0;
-            yield return 1;
+			yield return 0;
+			yield return 1;
 		}
 
 		public void Run (string input)
 		{
 			Input = input;
-            var a = new List<int> (input.Length);
+			var a = new List<int> (input.Length);
 			Backtrack (a, 0);
 		}
 	}
